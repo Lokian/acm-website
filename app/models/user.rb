@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :rsvps
+  
+  
   # email regex that only matches @uci.edu or @ics.uci.edu email addresses
   uci_email_field_regex = /\A[\w\.%\+\-]+@(?:ics\.)?uci\.edu\z/i
   

@@ -2,6 +2,7 @@
 *.sqlite3
 config/deploy.rb
 config/database.yml
-tmp/*
-log/*
-public/cache/*
+tmp/**/*
+log/*.log
+log/*.pid
+public/cache
