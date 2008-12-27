@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  
+
   map.resource :account, :controller => "users"
   map.resources :users
   map.resources :password_resets, :as => 'password_reset'
+  
+  map.resources :events
 
   map.resource :user_session
   map.root :controller => "user_sessions", :action => "new"
