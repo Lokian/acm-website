@@ -13,11 +13,11 @@ class RsvpsController < ApplicationController
   end
   
   def create
-    RAILS_DEFAULT_LOGGER.debug "I'm in the controller"
     @rsvp = Rsvp.new(params[:rsvp])
 
     respond_to do |format|
       if @rsvp.save
+        format.js
         format.html { redirect_to(@rsvp.event) }
       else
         flash[:error] = 'Unable to save RSVP. Please try again or contact the ACM Web Developer.'

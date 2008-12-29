@@ -1,0 +1,2 @@
+$("#new_rsvp").replaceWith("<%= escape_javascript('You have RSVPd for this event. ' + link_to('Manage your event reservations', rsvps_path) + '<br />') %>");
+$("#rsvp_count").html("<%= pluralize(@rsvp.event.rsvps.count, 'person') %>");

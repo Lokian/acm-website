@@ -19,15 +19,18 @@
 </p>
 
 <p>
-  <%= @event.rsvps.size %> people are attending this event.
+  <span id="rsvp_count"><%= @event.rsvps.size %> people</span> are attending this event.
 </p>
 
+<p>
 <% if !current_user || !current_user.is_attending?(@event.id) %>
-  <%= button_to("RSVP for this event", rsvps_path(:rsvp => {:event_id => @event.id, :user_id => current_user})) %><br />
-
+  <div id="new_rsvp">
+    <%= button_to("RSVP for this event", rsvps_path(:rsvp => {:event_id => @event.id, :user_id => current_user})) %>
+  </div>
 <% else %>
-  <p>You have RSVP'd for this event. <%= link_to "Manage your event reservations", rsvps_path %></p>
+  You have RSVP'd for this event. <%= link_to "Manage your event reservations", rsvps_path %><br />
 <% end %>
+</p><br />
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
