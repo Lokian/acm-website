@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     Notifier.deliver_password_reset_instructions(self)
   end
+  
+  def is_attending? event
+    Rsvp.exists?(:user_id => self.id, :event_id => event)
+  end
 end

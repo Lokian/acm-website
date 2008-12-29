@@ -1,0 +1,17 @@
+<h1>Listing Event Reservations (RSVP's)</h1>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Attending</th>
+  </tr>
+
+<% for rsvp in @rsvps %>
+  <tr>
+    <td><%= link_to(h(rsvp.event.name), rsvp.event) %></td>
+    <td><%= rsvp.event.start_time.strftime("%a %b %d") %></td>
+    <td><%= link_to 'Cancel', rsvp, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
